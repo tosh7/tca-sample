@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19CCFB532A1FA2CE003B56D1 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCFB522A1FA2CE003B56D1 /* Feature.swift */; };
 		19EF9BA12A12038D0018867B /* tca_sampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF9BA02A12038D0018867B /* tca_sampleApp.swift */; };
 		19EF9BA32A12038D0018867B /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF9BA22A12038D0018867B /* FeatureView.swift */; };
 		19EF9BA52A12038E0018867B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19EF9BA42A12038E0018867B /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19CCFB522A1FA2CE003B56D1 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		19EF9B9D2A12038D0018867B /* tca-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tca-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19EF9BA02A12038D0018867B /* tca_sampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tca_sampleApp.swift; sourceTree = "<group>"; };
 		19EF9BA22A12038D0018867B /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
@@ -34,6 +36,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19CCFB512A1FA2AE003B56D1 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				19EF9BA22A12038D0018867B /* FeatureView.swift */,
+				19CCFB522A1FA2CE003B56D1 /* Feature.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
 		19EF9B942A12038D0018867B = {
 			isa = PBXGroup;
 			children = (
@@ -53,8 +64,8 @@
 		19EF9B9F2A12038D0018867B /* tca-sample */ = {
 			isa = PBXGroup;
 			children = (
+				19CCFB512A1FA2AE003B56D1 /* Feature */,
 				19EF9BA02A12038D0018867B /* tca_sampleApp.swift */,
-				19EF9BA22A12038D0018867B /* FeatureView.swift */,
 				19EF9BA42A12038E0018867B /* Assets.xcassets */,
 				19EF9BA62A12038E0018867B /* Preview Content */,
 			);
@@ -145,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19CCFB532A1FA2CE003B56D1 /* Feature.swift in Sources */,
 				19EF9BA32A12038D0018867B /* FeatureView.swift in Sources */,
 				19EF9BA12A12038D0018867B /* tca_sampleApp.swift in Sources */,
 			);
