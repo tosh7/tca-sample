@@ -11,7 +11,7 @@ import ComposableArchitecture
 struct Feature: ReducerProtocol {
     // This is for DI
     // just like an api client
-    let numberFact: (Int) async throws -> String
+    @Dependency(\.numberFact) var numberFact
 
     struct State: Equatable {
         var count = 0
@@ -40,7 +40,7 @@ struct Feature: ReducerProtocol {
         case .numberFactButtonTapped:
             return .run { [count = state.count] send in
                 await send(
-                    .numberFactResponse(TaskResult { try await self.numberFact(count) })
+                    .numberFactResponse(TaskResult { try await self.numberFact.fetch(count) })
                 )
             }
 

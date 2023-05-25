@@ -15,7 +15,9 @@ final class FeatureTest: XCTestCase {
     @MainActor
     func testFeature() async {
         let store = TestStore(initialState: Feature.State()) {
-            Feature(numberFact: { "\($0) is a good number Brant" })
+            Feature()
+        } withDependencies: {
+            $0.numberFact.fetch = { "\($0) is a good number Brant" }
         }
 
         await store.send(.incrementButtonTapped) {

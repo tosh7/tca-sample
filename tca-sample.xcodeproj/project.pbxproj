@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		19CCFB532A1FA2CE003B56D1 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCFB522A1FA2CE003B56D1 /* Feature.swift */; };
 		19CCFB622A1FA74A003B56D1 /* FeatureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCFB612A1FA74A003B56D1 /* FeatureTest.swift */; };
+		19CCFB642A1FB5AA003B56D1 /* NumberFactClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCFB632A1FB5AA003B56D1 /* NumberFactClient.swift */; };
 		19EF9BA12A12038D0018867B /* tca_sampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF9BA02A12038D0018867B /* tca_sampleApp.swift */; };
 		19EF9BA32A12038D0018867B /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF9BA22A12038D0018867B /* FeatureView.swift */; };
 		19EF9BA52A12038E0018867B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19EF9BA42A12038E0018867B /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		19CCFB522A1FA2CE003B56D1 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		19CCFB582A1FA71F003B56D1 /* tca-sampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tca-sampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19CCFB612A1FA74A003B56D1 /* FeatureTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTest.swift; sourceTree = "<group>"; };
+		19CCFB632A1FB5AA003B56D1 /* NumberFactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactClient.swift; sourceTree = "<group>"; };
 		19EF9B9D2A12038D0018867B /* tca-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tca-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19EF9BA02A12038D0018867B /* tca_sampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tca_sampleApp.swift; sourceTree = "<group>"; };
 		19EF9BA22A12038D0018867B /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				19EF9BA22A12038D0018867B /* FeatureView.swift */,
 				19CCFB522A1FA2CE003B56D1 /* Feature.swift */,
 				19CCFB612A1FA74A003B56D1 /* FeatureTest.swift */,
+				19CCFB632A1FB5AA003B56D1 /* NumberFactClient.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				19CCFB532A1FA2CE003B56D1 /* Feature.swift in Sources */,
 				19EF9BA32A12038D0018867B /* FeatureView.swift in Sources */,
 				19EF9BA12A12038D0018867B /* tca_sampleApp.swift in Sources */,
+				19CCFB642A1FB5AA003B56D1 /* NumberFactClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
