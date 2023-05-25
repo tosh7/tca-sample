@@ -13,9 +13,16 @@ struct tca_sampleApp: App {
     var body: some Scene {
         WindowGroup {
             FeatureView(
-                store: Store(initialState: Feature.State()) {
-                    Feature()
-                }
+                store: Store(
+                    initialState: Feature.State(),
+                    reducer: Feature(
+                        numberFact: { number in
+                            let (data, _) = try await URLSession.shared
+                                .data(from: .init(string: "http://numbersapi.com/\(number)")!)
+                            return String(decoding: data, as: UTF8.self)
+                        }
+                    )
+                )
             )
         }
     }

@@ -9,6 +9,10 @@ import Foundation
 import ComposableArchitecture
 
 struct Feature: ReducerProtocol {
+    // This is for DI
+    // just like an api client
+    let numberFact: (Int) async throws -> String
+
     struct State: Equatable {
         var count = 0
         var numberFactAlert: String?
@@ -36,15 +40,7 @@ struct Feature: ReducerProtocol {
         case .numberFactButtonTapped:
             return .run { [count = state.count] send in
                 await send(
-                    .numberFactResponse(
-                        TaskResult {
-                            String(
-                                decoding: try await URLSession.shared
-                                    .data(from: URL(string: "http://numbersapi.com/\(count)/trivia")!).0,
-                                as: UTF8.self
-                            )
-                        }
-                    )
+                    .numberFactResponse(TaskResult { try await self.numberFact(count) })
                 )
             }
 

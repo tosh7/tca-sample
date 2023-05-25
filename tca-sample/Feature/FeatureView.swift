@@ -41,7 +41,7 @@ struct FactAlert: Identifiable {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         FeatureView(store: Store(initialState: Feature.State()) {
-            Feature()
+            Feature(numberFact: { "\($0) is a good number Brant" })
         })
     }
 }
