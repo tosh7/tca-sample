@@ -15,15 +15,5 @@ jobs:
         with:
           xcode-version: '14.2.0'
 
-#      - name: UnitTests
-#        run: xcodebuild test -project tca-sample.xcodeproj -scheme tca-sampleTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=Any iOS Simulator Device'
-
-    - name: Setup ios-sim
-        run: brew install ios-sim
-
-    - name: Add iOS Simulator
-        run: ios-sim start --devicetypeid "com.apple.CoreSimulator.SimDeviceType.iPhone-13, 15.0"
-
-    - name: UnitTests
-        run: xcodebuild test -project tca-sample.xcodeproj -scheme tca-sampleTests -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13'
-
+      - name: UnitTests
+        run: xcodebuild test -project tca-sample.xcodeproj -scheme tca-sampleTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=Any iOS Simulator Device'
