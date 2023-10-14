@@ -8,7 +8,7 @@
 import Foundation
 import ComposableArchitecture
 
-struct Feature: ReducerProtocol {
+struct Feature: Reducer {
     // This is for DI
     // just like an api client
     @Dependency(\.numberFact) var numberFact
@@ -26,7 +26,7 @@ struct Feature: ReducerProtocol {
         case numberFactResponse(TaskResult<String>)
     }
 
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .factAlertDismissed:
             state.numberFactAlert = nil
