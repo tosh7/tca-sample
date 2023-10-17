@@ -1,19 +1,24 @@
 name: MergeDevelopToDevelop
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+        from:
+            description: 'From branch'
+            required: true
+        to:
+            description: 'To branch'
+            required: true
 
 jobs:
-  build:
-    runs-on: macOS-latest
+    create_pull_request:
+        runs-on: macos-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: switch to from branch and rename
+              run: |
+                git checkout ${{ github.event.inputs.from }}
+                git branch -m merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}
+                git push origin merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}
 
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: '14.2.0'
-
-      - name: UnitTests
-        run: xcodebuild test -project tca-sample.xcodeproj -scheme tca-sampleTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2'
