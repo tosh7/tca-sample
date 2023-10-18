@@ -16,9 +16,10 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
+              with: 
+                token: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN }}
             - name: switch to from branch and rename
               run: |
                 git checkout ${{ github.event.inputs.from }}
                 git branch -m merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}
                 git push origin merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}
-
