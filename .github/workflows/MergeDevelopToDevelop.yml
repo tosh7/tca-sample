@@ -21,5 +21,5 @@ jobs:
             - name: switch to from branch and rename
               run: |
                 git checkout ${{ github.event.inputs.from }}
-                git chckout -b merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}
+                git checkout -b merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}
                 git push origin merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}\
