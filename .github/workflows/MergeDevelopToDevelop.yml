@@ -17,7 +17,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
               with: 
-                token: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN }}
+                token: ${{ secrets.GITHUB_TOKEN }}
             - name: switch to from branch and rename
               run: |
                 git checkout ${{ github.event.inputs.from }}
