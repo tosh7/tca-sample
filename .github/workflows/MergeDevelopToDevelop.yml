@@ -33,3 +33,5 @@ jobs:
                 --head ${{ github.event.inputs.from }} \
                 --title "merge develop to develop" \
                 --body "This is an auto generated PR."
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
