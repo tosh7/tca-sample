@@ -25,4 +25,11 @@ jobs:
               run: |
                 git checkout ${{ github.event.inputs.from }}
                 git checkout -b merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}
-                git push origin merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}\
+                git push origin merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}
+            - name: Create Pull Request
+              run: |
+                gh pr create \
+                --base ${{ github.event.inputs.to }} \
+                --head ${{ github.event.inputs.from }} \
+                --title "merge develop to develop" \
+                --body "This is an auto generated PR."
