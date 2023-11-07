@@ -25,8 +25,8 @@ jobs:
                 git config --local user.email "${GitHub_ACTOR}@users.noreply.github.com"
             - name: switch to from branch and rename
               run: |
-                git checkout -b merge-${GITHUB_REF#refs/heads/}-to-${{ github.event.inputs.to }}
-                git push origin merge-${GITHUB_REF#refs/heads/}-to-${{ github.event.inputs.to }}
+                git checkout -b merge-${{ secrets.GITHUB_TOKEN }}-to-${{ github.event.inputs.to }}
+                git push origin merge-${{ secrets.GITHUB_TOKEN }}-to-${{ github.event.inputs.to }}
             - name: Create Pull Request
               uses: actions/github-script@v6
               with:
