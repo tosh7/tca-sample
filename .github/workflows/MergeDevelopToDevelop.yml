@@ -3,9 +3,6 @@ name: MergeDevelopToDevelop
 on:
   workflow_dispatch:
     inputs:
-        from:
-            description: 'From branch'
-            required: true
         to:
             description: 'To branch'
             required: true
@@ -21,17 +18,27 @@ jobs:
               uses: actions/checkout@v4
               with: 
                 token: ${{ secrets.GITHUB_TOKEN }}
+            - run: echo "HEAD=${GITHUB_REF#refs/heads/}" >> "${GITHUB_OUTPUT}"
+              id: head-name
+            - run: echo "BASE=${{ github.event.inputs.to }}" >> "${GITHUB_OUTPUT}"
+              id: base-name
+            - run: |
+                git config --local user.name "${GitHub_ACTOR}"
+                git config --local user.email "${GitHub_ACTOR}@users.noreply.github.com"
             - name: switch to from branch and rename
               run: |
-                git checkout ${{ github.event.inputs.from }}
-                git checkout -b merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}
-                git push origin merge-${{ github.event.inputs.from }}-to-${{ github.event.inputs.to }}
+                git checkout -b merge-${{ steps.head-name.outputs.HEAD }}-to-${{ steps.base-name.outputs.BASE }}
+                git push origin merge-${{ steps.head-name.outputs.HEAD }}-to-${{ steps.base-name.outputs.BASE }}
             - name: Create Pull Request
-              run: |
-                gh pr create \
-                --base ${{ github.event.inputs.to }} \
-                --head ${{ github.event.inputs.from }} \
-                --title "merge develop to develop" \
-                --body "This is an auto generated PR."
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              uses: actions/github-script@v6
+              with:
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                script: |
+                  github.rest.pulls.create({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    title: 'Merge ${{ steps.head-name.outputs.HEAD }} to ${{ steps.base-name.outputs.BASE }}',
+                    body: '${{ steps.head-name.outputs.HEAD }}から${{ steps.base-name.outputs.BASE }}へマージするPRを作成します。',
+                    head: 'merge-${{ steps.head-name.outputs.HEAD }}-to-${{ steps.base-name.outputs.BASE }}',
+                    base: '${{ steps.base-name.outputs.BASE }}'
+                  })
