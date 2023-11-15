@@ -35,7 +35,7 @@ jobs:
                   --title "Merge ${{ steps.head-name.outputs.HEAD }} to ${{ steps.base-name.outputs.BASE }}" \
                   --body "${{ steps.head-name.outputs.HEAD }}から${{ steps.base-name.outputs.BASE }}へマージするPRを作成します。" \
                   --head "merge-${{ steps.head-name.outputs.HEAD }}-to-${{ steps.base-name.outputs.BASE }}" \
-                  --base "${{ steps.base-name.outputs.BASE }}"
+                  --base "${{ steps.base-name.outputs.BASE }}" \
                   --milestone "TestMilestone"
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
