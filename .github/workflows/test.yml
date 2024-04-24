@@ -1,1 +1,11 @@
 name: Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macOS-latest
+
+    steps:
+    - run: echo "Hello World!"
